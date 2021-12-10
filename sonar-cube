@@ -1,0 +1,17 @@
+--Settingup sonar cube docker image {https://hub.docker.com/_/sonarqube}--Offical Image
+https://docs.sonarqube.org/latest/requirements/requirements/
+https://www.youtube.com/watch?v=ZAfMauwNFuQ&ab_channel=Thetips4you
+----Starting Installation--
+====Prerequites connamds for Linux
+sudo sysctl -w vm.max_map_count=524288
+sudo sysctl -w fs.file-max=131072
+ulimit -n 131072
+ulimit -u 8192
+
+docker run -d --name sonarqube -p 9000:9000 sonarqube
+URL http://<instance-ipaddress>:9000
+username: admin
+password: Mukesh@123
+
+------ Sonarcube with volume congiguration
+docker run -d --name sonarqubevolume -p 9010:9010 -v sonarqube_conf:/opt/sonarqube/conf -v sonarqube_extensions:/opt/sonarqube/extensions -v sonarqube_logs:/opt/sonarqube/logs -v sonarqube_data:/opt/sonarqube/data sonarqube
