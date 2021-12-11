@@ -18,3 +18,25 @@ docker run -d --name sonarqubevolume -p 9010:9010 -v sonarqube_conf:/opt/sonarqu
 
 --SonarQube with Jenkins
 https://www.youtube.com/watch?v=tbr_PeAGdfo&list=PLVx1qovxj-amVw_PRVFPR4bdXZJB_dKn9&index=2&ab_channel=Thetips4you
+
+=====================
+https://www.youtube.com/watch?v=4AEW-yR_Biw&list=PLVx1qovxj-amVw_PRVFPR4bdXZJB_dKn9&index=4&ab_channel=Thetips4you
+
+node{
+    stage('Cloning the project from Git')
+    {
+        git 'https://github.com/shazforiot/GOL.git'
+    }
+    stage('Sonarcube Analysis')
+    {
+        def scannerHome = tool 'sonarqube';
+        withSonarQubeEnv('sonarqube'){
+            sh "${scannerHome}/bin/sonar-scanner \
+            -D sonar.login=admin \
+            -D sonar.password=Mukesh@123 \
+            -D sonar.projectKey=SonarGitHubDocker \
+            -D sonar.exclusions=vendor/**,resources/**,**/*.java \
+            -D sonar.host.url=http://35.200.147.83:9000/"
+        }
+    }
+}
