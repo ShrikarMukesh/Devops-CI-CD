@@ -22,6 +22,9 @@ sudo apt-get install jenkins
 sudo systemctl daemon-reload
 sudo systemctl start jenkins
 sudo systemctl status jenkins
+sudo systemctl stop jenkins
+sudo systemctl restart jenkins
+
 
 ------Administration Setup----VVVIMP
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword  --> It will give password using this we can connect jenkins
