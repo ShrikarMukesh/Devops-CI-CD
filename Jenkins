@@ -4,7 +4,7 @@ https://www.youtube.com/watch?v=9Zj9EsnLmtM&ab_channel=DoctorAI
 https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
 Note: Need to install Java before installing jenkins
 --Java 
-sudo apt update
+sudo apt-get update
 sudo apt install openjdk-11-jdk
 java -version
 --Next Jenkins Installation
